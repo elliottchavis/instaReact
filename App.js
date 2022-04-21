@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 
-import * as firebase from 'firebase'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -23,7 +26,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import LandingScreen from './components/auth/Landing'
-
+import RegisterScreen from './components/auth/Register'
 
 
 const Stack = createStackNavigator();
@@ -32,6 +35,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen name="Landing" component={LandingScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="Register" component={RegisterScreen}/>
+
       </Stack.Navigator>
     </NavigationContainer>
 
